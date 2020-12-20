@@ -1,0 +1,29 @@
+.content {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.content input {
+  margin-right: 15px;
+}
+
+th {
+  cursor: pointer;
+}
+.hide{
+  display: none;
+}
+.alert {
+  top: 50px;
+  left: 40%;
+  width: 400px;
+  position: absolute;
+  margin: 0 auto;
+  padding: 20px 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: #fff;
+}
+
+.alert input {
+  margin-bottom: 10px;
+}

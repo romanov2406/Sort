@@ -1,0 +1,43 @@
+<div class="container">
+  <h1 style="color: red;">Phone Book:)</h1>
+  <div class="content">
+    <input type="text" class="form-control" [(ngModel)]="searchField" name="searchField">
+    <button class="btn btn-success" (click)="showModal()">Add</button>
+  </div>
+  <div class="window">
+    <div [class.hide]="!isHide" [class.alert]="isHide">
+      Name
+      <input type="text" class="form-control" [(ngModel)]="name" placeholder="Name" aria-label="Recipient's name"
+        aria-describedby="basic-addon2">
+      LastName
+      <input type="text" class="form-control" [(ngModel)]="surrname" placeholder="Name "
+        aria-label="Recipient's username" aria-describedby="basic-addon2">
+      Phone Number
+      <input type="text" class="form-control" [(ngModel)]="number" placeholder="Phone Number"
+        aria-label="Recipient's username" aria-describedby="basic-addon2">
+      <button class="btn btn-success" *ngIf="!isBtn" (click)="createUser()">Create</button>
+      <button class="btn btn-success" *ngIf="isBtn" (click)="saveUser()">Save User</button>
+    </div>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th (click)="sortBy('name')">First Name</th>
+        <th (click)="sortBy('surrname')">Last Name</th>
+        <th (click)="sortNumber()">Number</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let elem of users| search:searchField| sort: sortingColumn: isDesc;index as i">
+        <td>{{elem.name}}</td>
+        <td>{{elem.surrname}}</td>
+        <td>{{elem.number}}</td>
+        <td><button class="btn btn-warning" (click)="editUser(i)">Edit</button></td>
+        <td><button class="btn btn-danger" (click)="deleteUser(i)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
